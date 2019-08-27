@@ -7,7 +7,10 @@ package com.data.array;
 public class ArrayListTest {
 
     public static void main(String[] args) {
-        System.out.println("aa");
-        System.
+        ArrayList list = new ArrayList(5);
+        list.addLast(1);
+        list.addLast(3);
+        list.addLast(4);
+        list.add(1, 2);
     }
 }
