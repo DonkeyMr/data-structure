@@ -1,5 +1,7 @@
 package com.data.array;
 
+import java.util.Arrays;
+
 /**
  * @author liupeng
  * @date 2019/8/26
@@ -77,5 +79,31 @@ public class ArrayList {
         }
         data[index] = e;
         size++;
+    }
+
+    /**
+     * 获取指定位置的元素
+     */
+    public int get(int index) {
+        if (index < 0 || index >= size) {
+            throw new IllegalArgumentException("索引越界");
+        }
+        return data[index];
+    }
+
+    /**
+     * 修改指定位置的元素
+     */
+    public void set(int index, int e) {
+        if (index < 0 || index >= size) {
+            throw new IllegalArgumentException("索引越界");
+        }
+        data[index] = e;
+    }
+
+    @Override
+    public String toString() {
+        return "length：" + data.length + "，size：" + size + "\n" +
+            Arrays.toString(data);
     }
 }
