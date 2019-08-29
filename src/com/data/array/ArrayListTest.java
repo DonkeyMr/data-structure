@@ -7,14 +7,16 @@ package com.data.array;
 public class ArrayListTest {
 
     public static void main(String[] args) {
-        ArrayList list = new ArrayList(20);
+        ArrayList list = new ArrayList();
         for (int i = 0; i < 5; i++) {
             list.addLast(i);
         }
         System.out.println(list);
 
-        System.out.println(list.get(33));
+        list.remove(1);
+        System.out.println(list);
 
-
+        list.removeElement(4);
+        System.out.println(list);
     }
 }

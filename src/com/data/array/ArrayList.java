@@ -101,6 +101,60 @@ public class ArrayList {
         data[index] = e;
     }
 
+    /**
+     * 查看集合中是否含有元素E
+     */
+    public boolean contains(int e) {
+        for (int i = 0; i < size; i++) {
+            if (data[i] == e) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    /**
+     * 查看元素在集合中的位置
+     * 若元素不存在，则返回 -1
+     */
+    public int find(int e) {
+        for (int i = 0; i < size; i++) {
+            if (data[i] == e) {
+                return i;
+            }
+        }
+
+        return -1;
+    }
+
+    /**
+     * 删除指定位置的元素
+     */
+    public int remove(int index) {
+        if (index < 0 || index >= size) {
+            throw new IllegalArgumentException("索引越界");
+        }
+
+        int temp = data[index];
+        for (int i = index + 1; i < size; i++) {
+            data[i - 1] = data[i];
+        }
+        size--;
+        data[size] = 0;
+
+        return temp;
+    }
+
+    /**
+     * 删除指定元素E
+     */
+    public void removeElement(int e) {
+        int index = find(e);
+        if (index != -1) {
+            remove(index);
+        }
+    }
+
     @Override
     public String toString() {
         return "length：" + data.length + "，size：" + size + "\n" +
