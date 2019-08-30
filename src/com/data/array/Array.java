@@ -6,7 +6,7 @@ import java.util.Arrays;
  * @author liupeng
  * @date 2019/8/26
  */
-public class ArrayList<E> {
+public class Array<E> {
 
     private Object[] data;
 
@@ -15,7 +15,7 @@ public class ArrayList<E> {
     /**
      * 有参构造，传入集合的容量capacity构造List
      */
-    public ArrayList(int capacity) {
+    public Array(int capacity) {
         this.data = new Object[capacity];
         this.size = 0;
     }
@@ -23,7 +23,7 @@ public class ArrayList<E> {
     /**
      * 无参构造，默认容量capacity = 10
      */
-    public ArrayList() {
+    public Array() {
         this(10);
     }
 
@@ -66,12 +66,13 @@ public class ArrayList<E> {
      * 向指定 index 插入一个元素
      */
     public void add(int index, E e) {
-        if (size == data.length) {
-            throw new IllegalArgumentException("添加失败，集合已满");
-        }
-
         if (index < 0 || index > size) {
             throw new IllegalArgumentException("添加失败，index > 0 && index <= size");
+        }
+
+        if (size == data.length) {
+            int newCapacity = data.length * 2;
+            resize(newCapacity);
         }
 
         for (int i = size - 1; i >= index ; i--) {
@@ -141,9 +142,27 @@ public class ArrayList<E> {
             data[i - 1] = data[i];
         }
         size--;
-        data[size] = 0;
+        data[size] = null;
+
+        if (size == data.length / 4 && data.length / 2 != 0) {
+            resize(data.length / 2);
+        }
 
         return temp;
+    }
+
+    /**
+     * 删除第一个元素
+     */
+    public E removeFirst() {
+        return remove(0);
+    }
+
+    /**
+     * 删除最后一个元素
+     */
+    public E removeLast() {
+        return remove(size - 1);
     }
 
     /**
@@ -154,6 +173,15 @@ public class ArrayList<E> {
         if (index != -1) {
             remove(index);
         }
+    }
+
+    private void resize(int newCapacity) {
+        Object[] newData = new Object[newCapacity];
+
+        for (int i = 0; i < size; i++) {
+            newData[i] = data[i];
+        }
+        data = newData;
     }
 
     @Override
