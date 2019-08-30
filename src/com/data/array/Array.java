@@ -94,6 +94,20 @@ public class Array<E> {
     }
 
     /**
+     * 查看最后一个元素
+     */
+    public E getLast() {
+        return get(size - 1);
+    }
+
+    /**
+     * 查看第一个元素
+     */
+    public E getFirst() {
+        return get(0);
+    }
+
+    /**
      * 修改指定位置的元素
      */
     public void set(int index, int e) {
