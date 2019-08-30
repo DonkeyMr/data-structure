@@ -15,5 +15,9 @@ public class StackTest {
 
         stack.pop();
         System.out.println(stack);
+
+        String s = null;
+        char[] chars = s.toCharArray();
+
     }
 }
