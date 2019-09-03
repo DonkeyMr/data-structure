@@ -4,7 +4,7 @@ package com.data.queue;
  * @author liupeng
  * @date 2019/8/30
  */
-public class QueueTest {
+public class ArrayQueueTest {
 
     public static void main(String[] args) {
         ArrayQueue<Integer> queue = new ArrayQueue<>();
