@@ -83,4 +83,75 @@ public class LinkedList<E> {
     public void addLast(E e) {
         add(size, e);
     }
+
+    /**
+     * 查找元素
+     */
+    public E get(int index) {
+        if (index < 0 || index >= size) {
+            throw new IllegalArgumentException("illegal index");
+        }
+
+        Node cur = dummyHead.next;
+        for (int i = 0; i < index; i++) {
+            cur = cur.next;
+        }
+        return cur.e;
+    }
+
+    /**
+     * 查找链表第一个元素
+     */
+    public E getFirst() {
+        return get(0);
+    }
+
+    /**
+     * 查找链表最后一个元素
+     */
+    public E getLast() {
+        return get(size - 1);
+    }
+
+    /**
+     * 修改链表指定位置元素
+     */
+    public void set(int index, E e) {
+        if (index < 0 || index >= size) {
+            throw new IllegalArgumentException("illegal index");
+        }
+
+        Node cur = dummyHead.next;
+        for (int i = 0; i < index; i++) {
+            cur = cur.next;
+        }
+        cur.e = e;
+    }
+
+    /**
+     * 查找链表是否包含某一元素
+     */
+    public boolean contains(E e) {
+        Node cur = dummyHead.next;
+        while (cur != null) {
+            if (cur.e.equals(e)) {
+                return true;
+            }
+            cur = cur.next;
+        }
+        return false;
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder builder = new StringBuilder();
+        Node cur = dummyHead.next;
+        while (cur != null) {
+            builder.append(cur.e);
+            builder.append("->");
+            cur = cur.next;
+        }
+        builder.append("null");
+        return builder.toString();
+    }
 }
