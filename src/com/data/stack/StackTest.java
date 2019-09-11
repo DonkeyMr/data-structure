@@ -7,7 +7,9 @@ package com.data.stack;
 public class StackTest {
 
     public static void main(String[] args) {
-        ArrayStack<Integer> stack = new ArrayStack<>();
+      // Stack<Integer> stack = new ArrayStack<>();
+       Stack<Integer> stack = new LinkedListStack<>();
+
         for (int i = 0; i < 5; i++) {
             stack.push(i);
         }
@@ -15,9 +17,6 @@ public class StackTest {
 
         stack.pop();
         System.out.println(stack);
-
-        String s = null;
-        char[] chars = s.toCharArray();
 
     }
 }
