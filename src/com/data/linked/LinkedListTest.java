@@ -13,5 +13,8 @@ public class LinkedListTest {
 
         list.set(2, 666);
         System.out.println(list);
+
+        list.remove(2);
+        System.out.println(list);
     }
 }

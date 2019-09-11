@@ -142,6 +142,44 @@ public class LinkedList<E> {
         return false;
     }
 
+    /**
+     * 删除链表元素
+     * @return
+     */
+    public E remove(int index) {
+        if (index < 0 || index >= size) {
+            throw new IllegalArgumentException("illegal index");
+        }
+
+        Node prev = dummyHead;
+        for (int i = 0; i < index; i++) {
+            prev = prev.next;
+        }
+
+        Node retNode = prev.next;
+        prev.next = retNode.next;
+        retNode.next = null;
+        size--;
+
+        return retNode.e;
+    }
+
+    /**
+     * 删除链表第一个元素
+     * @return
+     */
+    public E removeFirst() {
+        return remove(0);
+    }
+
+    /**
+     * 删除链表最后一个元素
+     * @return
+     */
+    public E removeLast() {
+        return remove(size - 1);
+    }
+
     @Override
     public String toString() {
         StringBuilder builder = new StringBuilder();
