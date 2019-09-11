@@ -3,7 +3,7 @@ package com.data.queue;
 public class LoopQueueTest {
 
     public static void main(String[] args) {
-        LoopQueue<Integer> queue = new LoopQueue<>();
+        Queue<Integer> queue = new LinkedListQueue<>();
         for (int i = 0; i < 10; i++) {
             queue.enqueue(i);
             System.out.println(queue);
