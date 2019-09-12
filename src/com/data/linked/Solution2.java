@@ -21,4 +21,14 @@ public class Solution2 {
         }
         return dummyHead.next;
     }
+
+    public static void main(String[] args) {
+        int[] arr = {1, 2, 3, 6, 4, 5, 6};
+        ListNode listNode = new ListNode(arr);
+        System.out.println(listNode);
+
+        Solution2 solution = new Solution2();
+        ListNode finalNodel = solution.removeElements(listNode, 6);
+        System.out.println(finalNodel);
+    }
 }
