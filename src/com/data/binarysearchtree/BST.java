@@ -150,6 +150,85 @@ public class BST<E extends Comparable<E>> {
         System.out.println(node.e);
     }
 
+    /**
+     * 二分搜索树的最小元素
+     */
+    public E minimum() {
+        if (size == 0) {
+            throw new IllegalArgumentException("BST is empty");
+        }
+
+        return minimum(root).e;
+    }
+
+    private Node minimum(Node node) {
+        if (node.left == null) {
+            return node;
+        }
+        return minimum(node.left);
+    }
+
+    /**
+     * 二分搜索树的最大元素
+     */
+    public E maximum() {
+        if (size == 0) {
+            throw new IllegalArgumentException("BST is empty");
+        }
+
+        return maximum(root).e;
+    }
+
+    private Node maximum(Node node) {
+        if (node.right == null) {
+            return node;
+        }
+        return node.right;
+    }
+
+    /**
+     * 删除二分搜索树最小元素
+     */
+    public E removeMin() {
+        E minimum = minimum();
+        root = removeMin(root);
+        return minimum;
+    }
+
+    /**
+     * 删除二分搜索树最小元素
+     * 并返回删除节点后的新的二分搜索树的根
+     */
+    private Node removeMin(Node node) {
+        if (node.left == null) {
+            Node right = node.right;
+            node.right = null;
+            size--;
+            return right;
+        }
+
+        node.left = removeMin(node.left);
+        return node;
+    }
+
+    public E removeMax() {
+        E maximum = maximum();
+        root = removeMax(root);
+        return maximum;
+    }
+
+    private Node removeMax(Node node) {
+        if (node.right == null) {
+            Node left = node.left;
+            node.left = null;
+            size--;
+            return left;
+        }
+
+        node.right = removeMax(node.right);
+        return node;
+    }
+
 
     @Override
     public String toString() {
