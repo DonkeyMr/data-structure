@@ -1,9 +1,5 @@
 package com.data.binarysearchtree;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Random;
-
 /**
  * @author liupeng
  * @date 2019/9/27
@@ -11,8 +7,9 @@ import java.util.Random;
 public class BSTTest {
 
     public static void main(String[] args) {
-        BST<Integer> bst = new BST<>();
-        Random random = new Random();
+       BST<Integer> bst = new BST<>();
+
+       /*  Random random = new Random();
 
         for (int i = 0; i < 1000; i++) {
             bst.add(random.nextInt(10000));
@@ -31,7 +28,16 @@ public class BSTTest {
                 throw new IllegalArgumentException("--- fail ---");
             }
         }
-        System.out.println("removeMin is completed");
+        System.out.println("removeMin is completed");*/
+
+
+       int[] arr = {1, 3, 2, 4, 5};
+        for (int i : arr) {
+            bst.add(i);
+        }
+        System.out.println(bst);
+        bst.remove(3);
+        System.out.println(bst);
 
     }
 }
