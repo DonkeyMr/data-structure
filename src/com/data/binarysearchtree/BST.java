@@ -183,7 +183,7 @@ public class BST<E extends Comparable<E>> {
         if (node.right == null) {
             return node;
         }
-        return node.right;
+        return maximum(node.right);
     }
 
     /**
