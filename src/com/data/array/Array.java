@@ -203,4 +203,17 @@ public class Array<E> {
         return "length：" + data.length + "，size：" + size + "\n" +
             Arrays.toString(data);
     }
+
+    /**
+     * 交换两个位置的元素
+     */
+    public void swap(int i, int j) {
+        if (i < 0 || i >= size || j < 0 || j >= size) {
+            throw new IllegalArgumentException("index is illegal");
+        }
+
+        E temp = (E) data[i];
+        data[i] = data[j];
+        data[j] = temp;
+    }
 }
