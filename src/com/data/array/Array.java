@@ -110,7 +110,7 @@ public class Array<E> {
     /**
      * 修改指定位置的元素
      */
-    public void set(int index, int e) {
+    public void set(int index, E e) {
         if (index < 0 || index >= size) {
             throw new IllegalArgumentException("索引越界");
         }
