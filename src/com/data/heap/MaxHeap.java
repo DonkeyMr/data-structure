@@ -20,7 +20,7 @@ public class MaxHeap<E extends Comparable<E>> {
 
     public MaxHeap(E[] arr) {
         data = new Array<>(arr);
-        // 从第一个非叶子节点开始执行siftDown
+        // 从第一个非叶子节点开始依次执行siftDown
         int k = parent(data.getSize() - 1);
         for (int i = k; i >= 0; i--) {
             siftDown(i);
