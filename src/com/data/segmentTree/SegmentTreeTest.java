@@ -12,5 +12,8 @@ public class SegmentTreeTest {
         System.out.println(segmentTree);
 
         System.out.println(segmentTree.query(0, 2));
+
+        segmentTree.set(0, 1);
+        System.out.println(segmentTree.query(0, 2));
     }
 }
