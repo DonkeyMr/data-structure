@@ -10,5 +10,7 @@ public class SegmentTreeTest {
         Integer[] nums = {8, 3, 6, 4, 1};
         SegmentTree<Integer> segmentTree = new SegmentTree<>(nums, (a, b) -> a + b);
         System.out.println(segmentTree);
+
+        System.out.println(segmentTree.query(0, 2));
     }
 }
